@@ -5,11 +5,30 @@ import { useState } from "react";
 export default function SignUpForm() {
   const [keyCounter, setKeyCounter] = useState(0);
   const [formData, setFormData] = useState({});
+  const url = 'http://localhost:3000/auth/sign-up'
+
+  async function sendData() {
+    let response = await fetch(url, {
+      mode: 'cors',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    if(response.status === 200) {
+      response = await response.json();
+      const jwt = response.token;
+      const user = response.user;
+    } else {
+      console.error(response)
+    }
+  }
 
   function submitForm(e) {
     e.preventDefault();
     setKeyCounter(keyCounter + 1);
-    console.log(formData)
+    sendData();
   }
 
   return (
