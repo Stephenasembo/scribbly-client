@@ -19,7 +19,7 @@ export default function SignUpForm() {
     if(response.status === 200) {
       response = await response.json();
       const jwt = response.token;
-      const user = response.user;
+      localStorage.setItem('jwt', `Bearer ${jwt}`)
     } else {
       console.error(response)
     }
@@ -29,6 +29,7 @@ export default function SignUpForm() {
     e.preventDefault();
     setKeyCounter(keyCounter + 1);
     sendData();
+    setFormData({});
   }
 
   return (
