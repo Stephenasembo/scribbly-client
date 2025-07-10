@@ -15,7 +15,7 @@ export default function AdminForm() {
         <form action="/" method='post'>
           <label htmlFor="adminSecret">
             Passcode(*): 
-            <input type="text" name="adminSecret" id="adminSecret" placeholder="Admin promotion code" required/>
+            <input type="text" name="adminSecret" id="adminSecret" placeholder="Admin promotion code" isrequired={true}/>
           </label>
           <button type="submit">Submit</button>
         </form>

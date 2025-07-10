@@ -1,24 +1,31 @@
+import Input from "../Input";
+
 export default function SignUpForm() {
+  function submitForm(e) {
+    e.preventDefault();
+    console.log('form submitted')
+  }
+
   return (
     <div>
       <p>
         Fill out the required details to become a member of Scribbly.
         Fields are marked with an asterisk(*) are required.
       </p>
-      <form action="/" method="post">
+      <form action="/sign-up" method="post">
         <label htmlFor="username">
           Username(*): 
-          <input type="text" name="username" id="username" placeholder="John Doe" required/>
+          <Input type="text" name="username" id="username" placeholder="John Doe" isrequired={true}/>
         </label>
         <label htmlFor="email">
           Email(*): 
-          <input type="email" name="email" id="email" placeholder="johndoe@gmail.com" required/>
+          <Input type="email" name="email" id="email" placeholder="johndoe@gmail.com" isrequired={true}/>
         </label>
         <label htmlFor="password">
           Password(*): 
-          <input type="password" name="password" id="password" placeholder="Enter your password" required/>
+          <Input type="password" name="password" id="password" placeholder="Enter your password" isrequired={true}/>
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={submitForm}>Submit</button>
       </form>
     </div>
   )

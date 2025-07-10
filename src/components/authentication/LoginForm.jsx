@@ -1,3 +1,5 @@
+import Input from "../Input"
+
 export default function LoginForm() {
   return(
     <div>
@@ -8,11 +10,11 @@ export default function LoginForm() {
       <form action="/" method="post">
         <label htmlFor="username">
           Username(*): 
-          <input type="text" name="username" id="username" placeholder="John Doe" required/>
+          <Input type="text" name="username" id="username" placeholder="John Doe" isrequired={true}/>
         </label>
         <label htmlFor="password">
           Password(*): 
-          <input type="password" name="password" id="password" placeholder="Enter your password" required/>
+          <Input type="password" name="password" id="password" placeholder="Enter your password" isrequired={true}/>
         </label>
         <button type="submit">Log in</button>
       </form>
