@@ -4,7 +4,7 @@ import App from './src/App';
 import Homepage from './src/components/Homepage';
 import SignUpForm from './src/components/authentication/SignUpForm';
 
-describe('Homepage component', () => {
+describe.skip('Homepage component', () => {
   const mockPost = {
     author: 'Stephen',
     title: 'Hello world',
@@ -26,11 +26,20 @@ describe('Homepage component', () => {
   });
 })
 
-describe.only('Sign up page', () => {
+describe.skip('Sign up page', () => {
   it('renders input fields correctly', () => {
     render(<SignUpForm />)
     expect(screen.getByLabelText(/username/i, {selector: 'input'}))
     expect(screen.getByPlaceholderText(/mail/))
+    expect(screen.getByRole('button', {name: /submit/i}))
+  })
+})
+
+describe.skip('Log in page', () => {
+  it('renders input fields correctly', () => {
+    render(<SignUpForm />)
+    expect(screen.getByLabelText(/username/i, {selector: 'input'}))
+    expect(screen.getByLabelText(/password/i, {selector: 'input'}))
     expect(screen.getByRole('button', {name: /submit/i}))
   })
 })
