@@ -4,10 +4,12 @@ import { useState } from "react";
 
 export default function AdminForm() {
   const [keyCounter, setKeyCounter] = useState(0);
+  const [formData, setFormData] = useState({})
+  
   function submitForm(e) {
     e.preventDefault();
     setKeyCounter(keyCounter + 1);
-    console.log('form submitted')
+    console.log(formData)
   }
 
   return (
@@ -33,6 +35,8 @@ export default function AdminForm() {
             id="adminSecret"
             placeholder="Admin promotion code"
             isrequired={true}
+            data={formData}
+            setData={setFormData}
             />
           </label>
           <Button

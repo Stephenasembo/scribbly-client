@@ -4,10 +4,12 @@ import { useState } from "react";
 
 export default function SignUpForm() {
   const [keyCounter, setKeyCounter] = useState(0);
+  const [formData, setFormData] = useState({});
+
   function submitForm(e) {
     e.preventDefault();
     setKeyCounter(keyCounter + 1);
-    console.log('form submitted')
+    console.log(formData)
   }
 
   return (
@@ -26,6 +28,8 @@ export default function SignUpForm() {
           id="username"
           placeholder="John Doe"
           isrequired={true}
+          data={formData}
+          setData={setFormData}
           />
         </label>
         <label htmlFor="email">
@@ -37,6 +41,8 @@ export default function SignUpForm() {
           id="email"
           placeholder="johndoe@gmail.com"
           isrequired={true}
+          data={formData}
+          setData={setFormData}
           />
         </label>
         <label htmlFor="password">
@@ -48,6 +54,8 @@ export default function SignUpForm() {
           id="password"
           placeholder="Enter your password"
           isrequired={true}
+          data={formData}
+          setData={setFormData}         
           />
         </label>
         <Button

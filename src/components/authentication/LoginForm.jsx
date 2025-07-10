@@ -4,10 +4,12 @@ import { useState } from "react";
 
 export default function LoginForm() {
   const [keyCounter, setKeyCounter] = useState(0);
+  const [formData, setFormData] = useState({});
+
   function submitForm(e) {
     e.preventDefault();
     setKeyCounter(keyCounter + 1);
-    console.log('form submitted')
+    console.log(formData)
   }
 
   return(
@@ -26,6 +28,8 @@ export default function LoginForm() {
           id="username"
           placeholder="John Doe"
           isrequired={true}
+          data={formData}
+          setData={setFormData}
           />
         </label>
         <label htmlFor="password">
@@ -37,6 +41,8 @@ export default function LoginForm() {
           id="password"
           placeholder="Enter your password"
           isrequired={true}
+          data={formData}
+          setData={setFormData}
           />
         </label>
         <Button
