@@ -1,10 +1,15 @@
 import Button from "../Button"
 import Input from "../Input"
+import { useState } from "react";
 
 export default function LoginForm() {
+  const [keyCounter, setKeyCounter] = useState(0);
   function submitForm(e) {
-    e.preventDefault()
+    e.preventDefault();
+    setKeyCounter(keyCounter + 1);
+    console.log('form submitted')
   }
+
   return(
     <div>
       <p>
@@ -14,11 +19,25 @@ export default function LoginForm() {
       <form action="/" method="post">
         <label htmlFor="username">
           Username(*): 
-          <Input type="text" name="username" id="username" placeholder="John Doe" isrequired={true}/>
+          <Input
+          key={`username${keyCounter}`}
+          type="text"
+          name="username"
+          id="username"
+          placeholder="John Doe"
+          isrequired={true}
+          />
         </label>
         <label htmlFor="password">
           Password(*): 
-          <Input type="password" name="password" id="password" placeholder="Enter your password" isrequired={true}/>
+          <Input
+          key={`password${keyCounter}`}
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter your password"
+          isrequired={true}
+          />
         </label>
         <Button
         text='Log in'
