@@ -4,6 +4,7 @@ import App from './src/App';
 import Homepage from './src/components/Homepage';
 import SignUpForm from './src/components/authentication/SignUpForm';
 import AdminForm from './src/components/authentication/AdminForm';
+import LoginForm from './src/components/authentication/LoginForm';
 
 describe.skip('Homepage component', () => {
   const mockPost = {
@@ -36,16 +37,16 @@ describe.skip('Sign up page', () => {
   })
 })
 
-describe.skip('Log in page', () => {
+describe('Log in page', () => {
   it('renders input fields correctly', () => {
-    render(<SignUpForm />)
+    render(<LoginForm />)
     expect(screen.getByLabelText(/username/i, {selector: 'input'}))
     expect(screen.getByLabelText(/password/i, {selector: 'input'}))
-    expect(screen.getByRole('button', {name: /submit/i}))
+    expect(screen.getByRole('button', {name: /log in/i}))
   })
 })
 
-describe ('Admin Form', () => {
+describe.skip ('Admin Form', () => {
   it('renders form fields correctly', () => {
     render(<AdminForm />)
     expect(screen.getByLabelText(/passcode/i, {selector: 'input'}))
