@@ -3,6 +3,7 @@ import { describe, it, expect } from 'vitest';
 import App from './src/App';
 import Homepage from './src/components/Homepage';
 import SignUpForm from './src/components/authentication/SignUpForm';
+import AdminForm from './src/components/authentication/AdminForm';
 
 describe.skip('Homepage component', () => {
   const mockPost = {
@@ -40,6 +41,14 @@ describe.skip('Log in page', () => {
     render(<SignUpForm />)
     expect(screen.getByLabelText(/username/i, {selector: 'input'}))
     expect(screen.getByLabelText(/password/i, {selector: 'input'}))
+    expect(screen.getByRole('button', {name: /submit/i}))
+  })
+})
+
+describe ('Admin Form', () => {
+  it('renders form fields correctly', () => {
+    render(<AdminForm />)
+    expect(screen.getByLabelText(/passcode/i, {selector: 'input'}))
     expect(screen.getByRole('button', {name: /submit/i}))
   })
 })
