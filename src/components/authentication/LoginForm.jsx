@@ -1,6 +1,10 @@
+import Button from "../Button"
 import Input from "../Input"
 
 export default function LoginForm() {
+  function submitForm(e) {
+    e.preventDefault()
+  }
   return(
     <div>
       <p>
@@ -16,7 +20,10 @@ export default function LoginForm() {
           Password(*): 
           <Input type="password" name="password" id="password" placeholder="Enter your password" isrequired={true}/>
         </label>
-        <button type="submit">Log in</button>
+        <Button
+        text='Log in'
+        onClick={submitForm}
+        />
       </form>
     </div>
   )

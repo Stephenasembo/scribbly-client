@@ -1,4 +1,10 @@
+import Button from "../Button"
+import Input from "../Input"
+
 export default function AdminForm() {
+  function submitForm(e) {
+    e.preventDefault()
+  }
   return (
     <div>
       <h1>Become an admin</h1>
@@ -15,9 +21,12 @@ export default function AdminForm() {
         <form action="/" method='post'>
           <label htmlFor="adminSecret">
             Passcode(*): 
-            <input type="text" name="adminSecret" id="adminSecret" placeholder="Admin promotion code" isrequired={true}/>
+            <Input type="text" name="adminSecret" id="adminSecret" placeholder="Admin promotion code" isrequired={true}/>
           </label>
-          <button type="submit">Submit</button>
+          <Button
+          text='Submit'
+          onClick={submitForm}
+          />
         </form>
       </div>
     </div>

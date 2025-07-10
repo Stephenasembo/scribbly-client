@@ -1,4 +1,5 @@
 import Input from "../Input";
+import Button from "../Button";
 
 export default function SignUpForm() {
   function submitForm(e) {
@@ -25,7 +26,10 @@ export default function SignUpForm() {
           Password(*): 
           <Input type="password" name="password" id="password" placeholder="Enter your password" isrequired={true}/>
         </label>
-        <button type="submit" onClick={submitForm}>Submit</button>
+        <Button
+        text='Submit'
+        onClick={submitForm}
+        />
       </form>
     </div>
   )
