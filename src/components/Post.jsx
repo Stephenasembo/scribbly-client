@@ -9,7 +9,7 @@ export default function Post({post}) {
           </p>
         <p>
           Published on: {(new Date(post.publishedAt)).toDateString()} by 
-          <span> {post.userId}</span>  
+          <span> {post.author}</span>  
         </p>
       </section>
     </div>
