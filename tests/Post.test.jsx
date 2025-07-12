@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import Post from '../src/components/Post';
+import renderWithRouter from '../src/utils/memoryRouter';
 
 describe('Post component', () => {
   const mockPost = {
@@ -11,8 +12,8 @@ describe('Post component', () => {
   }
 
   it('renders correctly', () => {
-    render(<Post post={mockPost}/>)
-    expect(screen.getByRole('link', {name: /Read more/i}))
-    expect(screen.getByText, /published/i)
+    renderWithRouter('/', <Post post={mockPost}/>)
+    expect(screen.getByRole('link', {name: /Read more/i})).toBeInTheDocument()
+    expect(screen.getByText(/published/i)).toBeInTheDocument()
   })
 })
