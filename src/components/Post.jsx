@@ -7,7 +7,7 @@ export default function Post({post}) {
         <h3>{post.title}</h3>
         <p>
           {post.content.slice(0, 100)} ...
-          <Link to="/">Read more</Link>
+          <Link to={`/posts/${post.id}`} >Read more</Link>
           </p>
         <p>
           Published on: {(new Date(post.publishedAt)).toDateString()} by 

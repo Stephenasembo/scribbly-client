@@ -4,6 +4,7 @@ import LoginForm from './components/authentication/LoginForm';
 import AdminForm from './components/authentication/AdminForm';
 import Index from './components/Index';
 import ErrorPage from './components/ErrorPage';
+import PostPage from './components/PostPage';
 
 const routes = [
   {
@@ -27,6 +28,10 @@ const routes = [
     path: 'app',
     element: <Homepage />
   },
+  {
+    path: 'posts/:postId',
+    element: <PostPage />
+  }
 ]
 
 export default routes;
