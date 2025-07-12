@@ -1,0 +1,18 @@
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import Post from '../src/components/Post';
+
+describe('Post component', () => {
+  const mockPost = {
+    author: 'Stephen',
+    title: 'Hello world',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum facilis beatae ut laboriosam, et quisquam nisi eaque rem est nesciunt culpa tempore ad expedita rerum tempora asperiores perferendis quasi officiis.',
+    publishDate: new Date(),
+  }
+
+  it('renders correctly', () => {
+    render(<Post post={mockPost}/>)
+    expect(screen.getByRole('link', {name: /Read more/i}))
+    expect(screen.getByText, /published/i)
+  })
+})

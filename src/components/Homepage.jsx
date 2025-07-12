@@ -1,4 +1,6 @@
-export default function Homepage({mockPost}) {
+import Post from "./Post";
+
+export default function Homepage() {
   return(
     <div className='container'>
     <nav>
@@ -16,17 +18,7 @@ export default function Homepage({mockPost}) {
     </header>
     <main>
       <h2>Posts</h2>
-      <section className='post'>
-        <h3>{mockPost.title}</h3>
-        <p>
-          {mockPost.content.slice(0, 100)} ...
-          <a href="/">Read more</a>
-          </p>
-        <p>
-          Published on: {(mockPost.publishDate).toDateString()} by 
-          <span> {mockPost.author}</span>  
-        </p>
-      </section>
+      <Post />
     </main>
     <footer>
       <p>Scribbly 2025 by Stephen Asembo.</p>
