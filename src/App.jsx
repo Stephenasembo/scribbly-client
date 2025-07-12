@@ -5,7 +5,7 @@ import AdminForm from './components/authentication/AdminForm';
 
 function App() {
   return (
-    <SignUpForm />
+    <LoginForm />
   )
 }
 
