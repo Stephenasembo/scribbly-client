@@ -8,8 +8,8 @@ export default function Post({post}) {
           <a href="/">Read more</a>
           </p>
         <p>
-          Published on: {(post.publishDate).toDateString()} by 
-          <span> {post.author}</span>  
+          Published on: {(new Date(post.publishedAt)).toDateString()} by 
+          <span> {post.userId}</span>  
         </p>
       </section>
     </div>
