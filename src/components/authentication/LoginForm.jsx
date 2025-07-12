@@ -20,7 +20,7 @@ export default function LoginForm() {
       return console.error(response.error);
     }
     response = await response.json();
-    const jwt = response.token;
+    const jwt = response.data.token;
     localStorage.setItem('jwt', `Bearer ${jwt}`)
   }
 

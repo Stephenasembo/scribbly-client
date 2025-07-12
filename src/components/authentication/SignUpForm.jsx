@@ -18,7 +18,7 @@ export default function SignUpForm() {
     })
     if(response.status === 200) {
       response = await response.json();
-      const jwt = response.token;
+      const jwt = response.data.token;
       localStorage.setItem('jwt', `Bearer ${jwt}`)
     } else {
       console.error(response)

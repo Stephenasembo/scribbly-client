@@ -3,7 +3,6 @@ import Post from "./Post";
 
 export default function Homepage() {
   const [posts, setPosts] = useState([]);
-  console.log({posts})
   const url = 'http://localhost:3000/app/posts'
 
   async function fetchPosts() {
@@ -16,7 +15,7 @@ export default function Homepage() {
     })
     if (response.status === 200) {
       response = await response.json();
-      setPosts(response.posts)
+      setPosts(response.data)
     } else {
       console.log('An error occurred when fetching posts')
     }

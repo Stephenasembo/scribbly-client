@@ -9,7 +9,6 @@ export default function AdminForm() {
   function submitForm(e) {
     e.preventDefault();
     setKeyCounter(keyCounter + 1);
-    console.log(formData)
   }
 
   return (
