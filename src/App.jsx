@@ -1,13 +1,11 @@
-import Homepage from './components/Homepage';
-import SignUpForm from './components/authentication/SignUpForm';
-import LoginForm from './components/authentication/LoginForm';
-import AdminForm from './components/authentication/AdminForm';
-import Post from './components/Post';
-import Index from './components/Index';
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import routes from "./routes"
+
+const router = createBrowserRouter(routes);
 
 function App() {
   return (
-    <Index />
+    <RouterProvider router={router} />
   )
 }
 

@@ -12,7 +12,7 @@ export default function Index() {
         </p>
         <p>
           Don't have an account ?
-          Create one here. <a href="/sign-up">Register</a>
+          Create one here. <a href="/register">Register</a>
         </p>
       </div>
     </div>
