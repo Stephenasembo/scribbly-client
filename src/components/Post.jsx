@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Post({post}) {
   return(
     <div>
@@ -5,7 +7,7 @@ export default function Post({post}) {
         <h3>{post.title}</h3>
         <p>
           {post.content.slice(0, 100)} ...
-          <a href="/">Read more</a>
+          <Link to="/">Read more</Link>
           </p>
         <p>
           Published on: {(new Date(post.publishedAt)).toDateString()} by 

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Index() {
   return (
     <div>
@@ -8,11 +10,11 @@ export default function Index() {
       </p>
       <div>
         <p>
-          Login back to your account here. <a href="/login">Login</a>
+          Login back to your account here. <Link to="/login">Login</Link>
         </p>
         <p>
           Don't have an account ?
-          Create one here. <a href="/register">Register</a>
+          Create one here. <Link to="/register">Register</Link>
         </p>
       </div>
     </div>

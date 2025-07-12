@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Post from "./Post";
+import { Link } from "react-router-dom"
 
 export default function Homepage() {
   const [posts, setPosts] = useState([]);
@@ -28,8 +29,8 @@ export default function Homepage() {
   return(
     <div className='container'>
     <nav>
-      <a href='/'>Home</a>
-      <a href='/posts'>Posts</a>
+      <Link to='/'>Home</Link>
+      <Link to='/posts'>Posts</Link>
     </nav>
     <header>
       <h1>Welcome to Scribbly.</h1>
