@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"
 
 export default function Homepage() {
   const [posts, setPosts] = useState([]);
+  const [status, setStatus] = useState('loading');
+  
   const url = 'http://localhost:3000/app/posts'
 
   async function fetchPosts() {
@@ -23,7 +25,9 @@ export default function Homepage() {
   }
 
   useEffect(() => {
-    fetchPosts();
+    fetchPosts()
+      .then(() => setStatus('data'))
+      .catch(() => setStatus('error'))
   }, [])
 
   return(
@@ -42,15 +46,23 @@ export default function Homepage() {
       <button>Start reading</button>
     </header>
     <main>
-      <h2>Posts</h2>
-      {posts.length > 0 ?
-        posts.map((post) => (
-          <Post
-          key={post.id}
-          post={post}
-          />
-        )) :
-        <p>No posts on this site yet.</p>
+      {status === 'loading' &&
+      <p>Loading posts. Hang tight.</p>}
+      {status === 'error' &&
+      <p>An error occured while fetching data.</p>}
+      { status === 'data' &&
+      <div>
+        <h2>Posts</h2>
+        {posts.length > 0 ?
+          posts.map((post) => (
+            <Post
+            key={post.id}
+            post={post}
+            />
+          )) :
+          <p>No posts on this site yet.</p>
+        }
+      </div>
       }
     </main>
     <footer>
