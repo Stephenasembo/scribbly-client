@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../Button"
 import Input from "../Input"
 import { useState } from "react";
@@ -5,6 +6,7 @@ import { useState } from "react";
 export default function LoginForm() {
   const [keyCounter, setKeyCounter] = useState(0);
   const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
   const url = 'http://localhost:3000/auth/login'
 
   async function sendData() {
@@ -17,11 +19,13 @@ export default function LoginForm() {
       body: JSON.stringify(formData)
     });
     if (response.status !== 200) {
-      return console.error(response.error);
+      let errorData = await response.json()
+      return console.log(errorData);
     }
     response = await response.json();
-    const jwt = response.data.token;
+    const jwt = response.token;
     localStorage.setItem('jwt', `Bearer ${jwt}`)
+    navigate('/app');
   }
 
   function submitForm(e) {
