@@ -12,7 +12,8 @@ export default function PostPage() {
   const [commentStatus, setCommentStatus] = useState('');
 
   useEffect(() => {
-    const url = `http://localhost:3000/app/posts/${postId}`
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = `${baseUrl}app/posts/${postId}`
     const token = localStorage.getItem('jwt');
 
     async function fetchPost() {
@@ -50,8 +51,9 @@ export default function PostPage() {
   }
 
   async function createComment() {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
     const token = localStorage.getItem('jwt');
-    const url = `http://localhost:3000/app/posts/${postId}/comments`;
+    const url = `${baseUrl}app/posts/${postId}/comments`;
     let response = await fetch(url, {
       mode: 'cors',
       method: 'POST',

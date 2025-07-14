@@ -6,25 +6,26 @@ export default function Homepage() {
   const [posts, setPosts] = useState([]);
   const [status, setStatus] = useState('loading');
   
-  const url = 'http://localhost:3000/app/posts'
-
-  async function fetchPosts() {
-    const token = localStorage.getItem('jwt');
-    let response = await fetch (url, {
-      mode: 'cors',
-      headers: {
-        'Authorization': token
-      }
-    })
-    if (response.status === 200) {
-      response = await response.json();
-      setPosts(response.data)
-    } else {
-      console.log('An error occurred when fetching posts')
-    }
-  }
-
   useEffect(() => {
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const url = `${baseUrl}app/posts`;
+
+    async function fetchPosts() {
+      const token = localStorage.getItem('jwt');
+      let response = await fetch (url, {
+        mode: 'cors',
+        headers: {
+          'Authorization': token
+        }
+      })
+      if (response.status === 200) {
+        response = await response.json();
+        setPosts(response.data)
+      } else {
+        console.log('An error occurred when fetching posts')
+      }
+    }
+
     fetchPosts()
       .then(() => setStatus('data'))
       .catch(() => setStatus('error'))

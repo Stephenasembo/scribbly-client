@@ -7,7 +7,8 @@ export default function SignUpForm() {
   const [keyCounter, setKeyCounter] = useState(0);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate()
-  const url = 'http://localhost:3000/auth/sign-up'
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const url = `${baseUrl}auth/sign-up`
 
   async function sendData() {
     let response = await fetch(url, {

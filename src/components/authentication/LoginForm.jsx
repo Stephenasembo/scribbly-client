@@ -7,7 +7,8 @@ export default function LoginForm() {
   const [keyCounter, setKeyCounter] = useState(0);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
-  const url = 'http://localhost:3000/auth/login'
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const url = `${baseUrl}auth/login`
 
   async function sendData() {
     let response = await fetch(url, {
