@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Post from "./Post";
 import { Link } from "react-router-dom"
+import styles from '../styles/Homepage.module.css'
 
 export default function Homepage() {
   const [posts, setPosts] = useState([]);
@@ -48,7 +49,7 @@ export default function Homepage() {
     </header>
     <main>
       {status === 'loading' &&
-      <p>Loading posts. Hang tight.</p>}
+      <div className={styles.spinner}></div>}
       {status === 'error' &&
       <p>An error occured while fetching data.</p>}
       { status === 'data' &&
