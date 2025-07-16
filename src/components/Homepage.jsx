@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Post from "./Post";
 import { Link } from "react-router-dom"
 import styles from '../styles/Homepage.module.css'
+import Button from "./Button";
 
 export default function Homepage() {
   const [posts, setPosts] = useState([]);
@@ -33,19 +34,22 @@ export default function Homepage() {
   }, [])
 
   return(
-    <div className='container'>
-    <nav>
-      <Link to='/'>Home</Link>
-      <Link to='/posts'>Posts</Link>
+    <div className={styles.container}>
+    <nav className={styles.navbar}>
+      <Link to='/' className={styles.navLink}>Home</Link>
+      <Link to='/posts'className={styles.navLink}>Posts</Link>
     </nav>
     <header>
-      <h1>Welcome to Scribbly.</h1>
-      <div>
+      <h1 className="heading">Welcome to Scribbly.</h1>
+      <div className={styles.hero}>
         <p>
           Explore thoughts, stories and ideas from seasoned writers.
         </p>
+        <Button
+        className={styles.btn}
+        text='Start reading'
+        />
       </div>
-      <button>Start reading</button>
     </header>
     <main>
       {status === 'loading' &&
@@ -54,7 +58,7 @@ export default function Homepage() {
       <p>An error occured while fetching data.</p>}
       { status === 'data' &&
       <div>
-        <h2>Posts</h2>
+        <h2 className="heading">Posts</h2>
         {posts.length > 0 ?
           posts.map((post) => (
             <Post
