@@ -2,6 +2,7 @@ import Input from "../Input";
 import Button from "../Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from '../../styles/Form.module.css'
 
 export default function SignUpForm() {
   const [keyCounter, setKeyCounter] = useState(0);
@@ -37,11 +38,10 @@ export default function SignUpForm() {
   }
 
   return (
-    <div>
-      <p>
-        Fill out the required details to become a member of Scribbly.
-        Fields are marked with an asterisk(*) are required.
-      </p>
+    <div className={styles.container}>
+      <h1 className="heading">Register</h1>
+      <p>Fill out the required details to become a member of Scribbly.</p>
+      <p>Fields are marked with an asterisk(*) are required.</p>
       <form action="/sign-up" method="post">
         <label htmlFor="username">
           Username(*): 
@@ -83,6 +83,7 @@ export default function SignUpForm() {
           />
         </label>
         <Button
+        className={styles.btn}
         text='Submit'
         onClick={submitForm}
         />

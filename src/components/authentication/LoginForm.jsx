@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button"
 import Input from "../Input"
 import { useState } from "react";
-import styles from '../../styles/Login.module.css'
+import styles from '../../styles/Form.module.css'
 
 export default function LoginForm() {
   const [keyCounter, setKeyCounter] = useState(0);

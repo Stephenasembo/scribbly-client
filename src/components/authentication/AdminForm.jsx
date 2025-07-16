@@ -1,6 +1,7 @@
 import Button from "../Button"
 import Input from "../Input"
 import { useState } from "react";
+import styles from '../../styles/Form.module.css';
 
 export default function AdminForm() {
   const [keyCounter, setKeyCounter] = useState(0);
@@ -12,8 +13,8 @@ export default function AdminForm() {
   }
 
   return (
-    <div>
-      <h1>Become an admin</h1>
+    <div className={styles.container}>
+      <h1 className="heading">Admin Registration</h1>
       <p>
         Admins are granted the role to become authors.
         Do  you know the secret passcode ?
@@ -39,6 +40,7 @@ export default function AdminForm() {
             />
           </label>
           <Button
+          className={styles.btn}
           text='Submit'
           onClick={submitForm}
           />
