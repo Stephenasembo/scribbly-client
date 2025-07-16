@@ -1,0 +1,14 @@
+.container {
+  margin: 1rem;
+}
+
+.heading {
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .auth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
