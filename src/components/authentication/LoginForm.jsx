@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button"
 import Input from "../Input"
 import { useState } from "react";
+import styles from '../../styles/Login.module.css'
 
 export default function LoginForm() {
   const [keyCounter, setKeyCounter] = useState(0);
@@ -37,12 +38,12 @@ export default function LoginForm() {
   }
 
   return(
-    <div>
-      <p>
-        Log back in to your account.
-        Fields are marked with an asterisk(*) are required.
-      </p>
+    <div className={styles.container}>
+      <h1 className='heading'>Login To Your Account</h1>
       <form action="/" method="post">
+        <p>
+          Fields marked with an asterisk(*) are required.
+        </p>
         <label htmlFor="username">
           Username(*): 
           <Input
@@ -70,6 +71,7 @@ export default function LoginForm() {
           />
         </label>
         <Button
+        className={styles.btn}
         text='Log in'
         onClick={submitForm}
         />
