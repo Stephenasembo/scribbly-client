@@ -3,11 +3,13 @@ import Button from "../Button"
 import Input from "../Input"
 import { useState } from "react";
 import styles from '../../styles/Form.module.css'
+import { useAuthContext } from "../context/AuthContext";
 
 export default function LoginForm() {
   const [keyCounter, setKeyCounter] = useState(0);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
+  const {setCurrentUser} = useAuthContext();
   const baseUrl = import.meta.env.VITE_BASE_URL;
   const url = `${baseUrl}auth/login`
 
@@ -26,7 +28,9 @@ export default function LoginForm() {
     }
     response = await response.json();
     const jwt = response.token;
-    localStorage.setItem('jwt', `Bearer ${jwt}`)
+    const user = response.user;
+    localStorage.setItem('jwt', `Bearer ${jwt}`);
+    setCurrentUser(user);
     navigate('/app');
   }
 

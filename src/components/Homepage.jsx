@@ -3,11 +3,13 @@ import Post from "./Post";
 import { Link } from "react-router-dom"
 import styles from '../styles/Homepage.module.css'
 import Button from "./Button";
+import { useAuthContext } from "./context/AuthContext";
 
 export default function Homepage() {
   const [posts, setPosts] = useState([]);
   const [status, setStatus] = useState('loading');
-  
+  const { currentUser } = useAuthContext();
+
   useEffect(() => {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = `${baseUrl}app/posts`;
@@ -40,7 +42,7 @@ export default function Homepage() {
       <Link to='/posts'className={styles.navLink}>Posts</Link>
     </nav>
     <header>
-      <h1 className="heading">Welcome to Scribbly.</h1>
+      <h1 className="heading">Welcome {currentUser.username}, to Scribbly.</h1>
       <div className={styles.hero}>
         <p>
           Explore thoughts, stories and ideas from seasoned writers.
