@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import Comment from "./Comment";
 import Button from "./Button";
 import CommentForm from "./CommentForm";
+import { useAuthContext } from "./context/AuthContext";
 
 export default function PostPage() {
   const [post, setPost] = useState({})
@@ -10,6 +11,9 @@ export default function PostPage() {
   const [isWriting, setIsWriting] = useState(false)
   const { postId } = useParams();
   const [commentStatus, setCommentStatus] = useState('');
+  const [postUpdated, setPostUpdated] = useState(false);
+
+  const {currentUser} = useAuthContext();
 
   useEffect(() => {
     const baseUrl = import.meta.env.VITE_BASE_URL;
@@ -32,7 +36,7 @@ export default function PostPage() {
     }
 
     fetchPost()
-  }, [postId, commentStatus])
+  }, [postId, commentStatus, postUpdated])
 
   function toggleComment() {
     setIsWriting(true)
@@ -89,7 +93,12 @@ export default function PostPage() {
             post.comments.map((comment) => (
               <Comment
               key={comment.id}
-              comment={comment}/>
+              comment={comment}
+              commentId={comment.id}
+              pageUpdated={postUpdated}
+              updatePage={setPostUpdated}
+              user={currentUser}
+              />
             )):
             <p>
               No comments yet. Be the first to comment.
