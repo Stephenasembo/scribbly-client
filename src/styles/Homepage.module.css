@@ -23,6 +23,18 @@
 .navLink {
   font-size: 18px;
   text-decoration: none;
+  color: blue;
+}
+
+.logoutBtn {
+  border: none;
+  background-color: #fff;
+  font-size: 18px;
+  color: blue;
+}
+
+.logoutBtn:hover {
+  cursor: pointer;
 }
 
 .hero {
