@@ -68,11 +68,11 @@ export default function Comment({comment, user, commentId, pageUpdated, updatePa
       />:
       <div>
         <p>
-          <span>{comment.userId}</span>
-          <span>{(new Date(comment.createdAt)).toDateString()}</span>
+          {comment.content}
         </p>
         <p>
-          {comment.content}
+          <span>@{comment.author} </span>
+          <span>{(new Date(comment.createdAt)).toDateString()}</span>
         </p>
         {comment.userId === user.id &&
         <div>

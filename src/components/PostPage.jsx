@@ -77,7 +77,7 @@ export default function PostPage() {
     <div>
       <h1>{post.title}</h1>
       <p>
-        <span>{post.author} </span>
+        <span>By <strong>{post.author}</strong> published on </span>
         <span>
           {(new Date(post.publishedAt)).toDateString()}
         </span>
