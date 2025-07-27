@@ -10,7 +10,18 @@ export default function Comment({comment, user, commentId, pageUpdated, updatePa
   const token = localStorage.getItem('jwt');
 
   async function deleteComment() {
-    console.log('Comment will be deleted.')
+    const url = `${baseUrl}app/comments/${commentId}`
+    let response = await fetch(url, {
+      mode: 'cors',
+      method: 'DELETE',
+      headers: {
+        'Authorization': token
+      }
+    })
+    if (response.status === 204) {
+      return updatePage(!pageUpdated);
+    }
+    console.log('An error occurred on deleting comment.')
   }
 
   function cancelComment(e) {
