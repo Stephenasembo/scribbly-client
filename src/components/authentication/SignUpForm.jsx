@@ -1,7 +1,7 @@
 import Input from "../Input";
 import Button from "../Button";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styles from '../../styles/Form.module.css'
 
 export default function SignUpForm() {
@@ -68,7 +68,7 @@ export default function SignUpForm() {
           <p>Fields are marked with an asterisk(*) are required.</p>
           <form action="/sign-up" method="post">
           {error.message &&
-          <p>{error.message}</p>
+          <p className={styles.error}>{error.message}</p>
           }
             <label htmlFor="username">
               Username(*):
@@ -115,6 +115,9 @@ export default function SignUpForm() {
             onClick={submitForm}
             />
           </form>
+          <p>
+            Go back <Link to='/'>home</Link>
+          </p>
         </div>
         }
       </div>

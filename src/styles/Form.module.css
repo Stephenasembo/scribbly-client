@@ -9,6 +9,18 @@
   border-radius: 1rem;
 }
 
+.btn:hover {
+  background-color: rgb(119, 116, 116);
+  color: white;
+}
+
+.error {
+  background-color: rgb(255, 58, 58);
+  width: max-content;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
 .spinnerContainer {
   margin-top: 45vh;
   display: grid;

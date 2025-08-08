@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Button from "../Button"
 import Input from "../Input"
 import { useState } from "react";
@@ -126,6 +126,9 @@ export default function LoginForm() {
             onClick={submitForm}
             />
           </form>
+          <p>
+            Go back <Link to='/'>home</Link>
+          </p>
         </div>
         }
       </div>
