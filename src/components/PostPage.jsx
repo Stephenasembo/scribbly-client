@@ -83,7 +83,7 @@ export default function PostPage() {
         </span>
       </p>
       <div>
-        <p>
+        <p style={{ whiteSpace: 'pre-line' }}>
           {post.content}
         </p>
         <div>
