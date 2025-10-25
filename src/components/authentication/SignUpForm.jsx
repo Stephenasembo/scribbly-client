@@ -26,7 +26,7 @@ export default function SignUpForm() {
     if(response.status === 200) {
       response = await response.json();
       const jwt = response.data.token;
-      localStorage.setItem('jwt', `Bearer ${jwt}`)
+      localStorage.setItem('scribbly_client_jwt', `Bearer ${jwt}`)
       return navigate('/app')
     }
     if(response.status === 400) {

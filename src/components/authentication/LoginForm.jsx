@@ -29,7 +29,7 @@ export default function LoginForm() {
       response = await response.json();
       const jwt = response.token;
       const user = response.user;
-      localStorage.setItem('jwt', `Bearer ${jwt}`);
+      localStorage.setItem('scribbly_client_jwt', `Bearer ${jwt}`);
       setCurrentUser(user);
       return navigate('/app');
     }

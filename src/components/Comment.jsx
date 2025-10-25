@@ -7,7 +7,7 @@ export default function Comment({comment, user, commentId, pageUpdated, updatePa
   const [content, setContent] = useState(comment.content)
 
   const baseUrl = import.meta.env.VITE_BASE_URL;
-  const token = localStorage.getItem('jwt');
+  const token = localStorage.getItem('scribbly_client_jwt');
 
   async function deleteComment() {
     const url = `${baseUrl}app/comments/${commentId}`

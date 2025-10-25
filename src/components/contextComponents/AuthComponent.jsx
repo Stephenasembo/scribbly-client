@@ -5,6 +5,9 @@ export default function AuthComponent ({children}) {
   const [currentUser, setCurrentUser] = useState({})
 
   useEffect(() => {
+    const token = localStorage.getItem('scribbly_client_jwt');
+    if(!token) return;
+
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = `${baseUrl}auth/user`
     async function fetchUser() {
@@ -21,11 +24,6 @@ export default function AuthComponent ({children}) {
       } else {
         return null;
       }
-    }
-
-    const token = localStorage.getItem('jwt');
-    if(!token) {
-      return;
     }
 
     fetchUser()

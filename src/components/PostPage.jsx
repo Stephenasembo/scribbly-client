@@ -18,7 +18,7 @@ export default function PostPage() {
   useEffect(() => {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const url = `${baseUrl}app/posts/${postId}`
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem('scribbly_client_jwt');
 
     async function fetchPost() {
       let response = await fetch(url, {
@@ -56,7 +56,7 @@ export default function PostPage() {
 
   async function createComment() {
     const baseUrl = import.meta.env.VITE_BASE_URL;
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem('scribbly_client_jwt');
     const url = `${baseUrl}app/posts/${postId}/comments`;
     let response = await fetch(url, {
       mode: 'cors',
